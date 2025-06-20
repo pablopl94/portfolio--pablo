@@ -1,0 +1,122 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+import Net from "./icons/Net.astro";
+import JavaScript from "./icons/JavaScript.astro";
+import MySQL from "./icons/MySQL.astro";
+import HtmlIcon from "./icons/HtmlIcon.astro";
+import CSS from "./icons/CSS.astro";
+import N8N from "./icons/n8n.astro";
+import SQLServer from "./icons/SQLServer.astro";
+import CSharp from "./icons/CSharp.astro";
+import Postman from "./icons/Postman.astro";
+import Swagger from "./icons/Swagger.astro";
+import Azure from "./icons/Azure.astro";
+import Java from "./icons/Java.astro";
+import Spring from "./icons/Spring.astro";
+import Angular from "./icons/Angular.astro";
+import TypeScript from "./icons/TypeScript.astro";
+import Instagram from "./icons/Instagram.astro";
+import Facebook from "./icons/Facebook.astro";
+import Wordpress from "./icons/Wordpress.astro";
+import Cursor from "./icons/Cursor.astro";
+import ClaudeAI from "./icons/ClaudeAI.astro";
+import Bootstrap from "./icons/Bootstrap.astro";
+
+const EXPERIENCE = [
+  {
+    date: "Actualmente",
+    title: "En búsqueda activa de empleo",
+    company: "Desarrollador Full Stack Junior",
+    description:
+      "Buscando nuevas oportunidades como desarrollador Full Stack Junior donde pueda aplicar mi experiencia en backend y frontend, así como mi mentalidad emprendedora para contribuir en proyectos innovadores.",
+  },
+  {
+    date: "Marzo 2025 - Junio 2025",
+    title: "Desarrollador Backend",
+    company: "Euro Kaizen SL",
+    description:
+      "Experiencia práctica en desarrollo backend corporativo, participando en la modernización de sistemas críticos y optimización de procesos empresariales.",
+    technologies: [
+      { name: ".NET", icon: Net },
+      { name: "C#", icon: CSharp },
+      { name: "SQLServer", icon: SQLServer },
+      { name: "Azure", icon: Azure },
+      { name: "Postman", icon: Postman },
+      { name: "Swagger", icon: Swagger },
+      { name: "N8N", icon: N8N },
+      { name: "Cursor", icon: Cursor },
+      { name: "Claude", icon: ClaudeAI },
+    ],
+    specifications: [
+      "Actualicé ERP de .Net Core 3.1 a .Net 8",
+      "Implementé Cursor + Claude para optimizar desarrollo",
+      "Reduje tiempo de actualización en 4 semanas",
+      "Debuggué procesos de importación y endpoints",
+      "Utilicé Postman, Swagger, Git y SQL Server",
+      "Diseñé workflows automatizados con n8n",
+      "Desarrollé scheduler para redes sociales",
+      "Optimicé tareas repetitivas del equipo",
+    ],
+  },
+  {
+    date: "Septiembre 2023 - Junio 2025",
+    title: "Grado Superior en Desarrollo de Aplicaciones Web",
+    company: "UNIR",
+    description:
+      "Formación técnica completa en desarrollo web fullstack, adquiriendo competencias en frontend, backend, bases de datos y metodologías de desarrollo.",
+    technologies: [
+      { name: "HTML", icon: HtmlIcon },
+      { name: "CSS", icon: CSS },
+      { name: "Bootstrap", icon: Bootstrap },
+      { name: "JavaScript", icon: JavaScript },
+      { name: "TypeScript", icon: TypeScript },
+      { name: "Java", icon: Java },
+      { name: "Spring Boot", icon: Spring },
+      { name: "Angular", icon: Angular },
+      { name: "MySQL", icon: MySQL },
+      { name: "Postman", icon: Postman },
+      { name: "Swagger", icon: Swagger },
+    ],
+    specifications: [
+      "Desarrollo frontend: HTML5, CSS3, JavaScript, TypeScript, Angular",
+      "Desarrollo backend: Java, Spring Boot,Spring MVC, Spring Data JPA, Spring Security",
+      "Bases de datos: MySQL, Oracle",
+      "Despliegue: Apache Tomcat, VPS",
+      "Herramientas de desarrollo: Git, Github, IDEs, debugging",
+    ],
+  },
+  {
+    date: "Agosto 2020 - Agosto 2022",
+    title: "Propietario Ecommerce",
+    company: "TheSoleJungle",
+    description:
+      "Emprendimiento completo gestionando todas las facetas de un negocio online, desde el desarrollo técnico hasta la estrategia comercial y atención al cliente.",
+    technologies: [
+      { name: "Wordpress", icon: Wordpress },
+      { name: "HTML", icon: HtmlIcon },
+      { name: "CSS", icon: CSS },
+      { name: "Instagram", icon: Instagram },
+      { name: "Facebook Bussines Manager", icon: Facebook },
+    ],
+    specifications: [
+      "Creé e-commerce completo con WordPress/WooCommerce",
+      "Procesé +50 pedidos mensuales con gestión integral",
+      "Gestioné inventario, pagos y atención al cliente",
+      "Diseñé estrategia digital con SEO y redes sociales",
+      "Desarrollé cálculo automático de gastos de envío",
+      "Resolví incidencias técnicas de Facebook/Instagram",
+      "Gestioné apelaciones y recuperé cuentas bloqueadas",
+    ],
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

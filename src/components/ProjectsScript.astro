@@ -1,0 +1,124 @@
+---
+// Este componente contiene toda la lógica JavaScript para los carruseles y desplegables
+---
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Configurar secciones desplegables
+        const toggleButtons = document.querySelectorAll(".section-toggle");        toggleButtons.forEach((button) => {
+            button.addEventListener("click", function (this: HTMLElement) {
+                const section = this.getAttribute("data-section");
+                const content = document.querySelector(
+                    `[data-content="${section}"]`,
+                );
+                const icon = this.querySelector(".toggle-icon") as HTMLElement;
+
+                if (content && icon) {
+                    // Toggle visibility
+                    if (content.classList.contains("hidden")) {
+                        content.classList.remove("hidden");
+                        content.classList.add("animate-fadeIn");
+                        icon.style.transform = "rotate(180deg)";
+                    } else {
+                        content.classList.add("hidden");
+                        content.classList.remove("animate-fadeIn");
+                        icon.style.transform = "rotate(0deg)";
+                    }
+                }
+            });
+        });
+
+        // Configurar carruseles para todas las secciones
+        const sections = ["backend", "frontend", "fullstack"];
+
+        sections.forEach((section) => {
+            const containers = document.querySelectorAll(
+                `[class*="carousel-container-${section}-"]`,
+            );
+
+            containers.forEach((container, projectIndex) => {
+                const track = container.querySelector(
+                    `[class*="carousel-track-${section}-${projectIndex}"]`,
+                ) as HTMLElement;
+                const indicators = container.querySelectorAll(
+                    `[class*="indicator-${section}-${projectIndex}-"]`,
+                );
+
+                if (!track || indicators.length === 0) return;
+
+                let currentIndex = 0;
+                const totalImages = indicators.length;
+
+                // Función para actualizar el carrusel
+                function updateCarousel() {
+                    const translateX = -(currentIndex * (100 / totalImages));
+                    track.style.transform = `translateX(${translateX}%)`;
+
+                    // Actualizar indicadores
+                    indicators.forEach((indicator, index) => {
+                        if (index === currentIndex) {
+                            indicator.classList.remove("bg-white/50");
+                            indicator.classList.add("bg-white", "scale-125");
+                        } else {
+                            indicator.classList.remove("bg-white", "scale-125");
+                            indicator.classList.add("bg-white/50");
+                        }
+                    });
+                }
+
+                // Función para ir a la siguiente imagen
+                function nextImage() {
+                    currentIndex = (currentIndex + 1) % totalImages;
+                    updateCarousel();
+                }
+
+                // Inicializar
+                updateCarousel();
+
+                // Auto-desplazamiento cada 4 segundos
+                let autoSlide = setInterval(nextImage, 4000);
+
+                // Pausar auto-desplazamiento al hacer hover
+                container.addEventListener("mouseenter", () => {
+                    clearInterval(autoSlide);
+                });
+
+                // Reanudar auto-desplazamiento al salir del hover
+                container.addEventListener("mouseleave", () => {
+                    autoSlide = setInterval(nextImage, 4000);
+                });
+
+                // Hacer clickeable los indicadores
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener("click", () => {
+                        currentIndex = index;
+                        updateCarousel();
+                        // Reiniciar el timer
+                        clearInterval(autoSlide);
+                        autoSlide = setInterval(nextImage, 4000);
+                    });
+
+                    // Hacer los indicadores clickeables visualmente
+                    (indicator as HTMLElement).style.cursor = "pointer";
+                });
+            });
+        });
+    });
+</script>
+
+<style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fadeIn {
+        animation: fadeIn 0.3s ease-out;
+    }
+</style>

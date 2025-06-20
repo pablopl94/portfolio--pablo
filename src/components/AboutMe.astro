@@ -1,0 +1,49 @@
+---
+const personalImageAlt = "Pablo Prieto";
+---
+
+<article
+  class="flex flex-col items-center justify-center gap-6 sm:gap-8 text-gray-700 dark:text-gray-300 md:flex-row px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+>
+  <div
+    class="[&>p]:mb-3 sm:[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1 w-full md:w-auto"
+  >
+    <p class="text-sm sm:text-base leading-relaxed">
+      ¡Hola! Soy Pablo, desarrollador fullstack junior que no se conforma solo
+      con programar. Durante dos años <strong
+        >monté y gestioné mi propio ecommerce</strong
+      >, una aventura que me enseñó a gestionar mi tiempo, aprender nuevas
+      tecnologías sobre la marcha y resolver los problemas que van surgiendo día
+      a día. Me encanta crear aplicaciones que realmente ayuden a la gente.
+    </p>
+
+    <p class="text-sm sm:text-base leading-relaxed">
+      Por ejemplo, cuando vi a mis compañeros de DAW estresados preparando
+      exámenes,
+      <strong
+        >desarrollé QuizzDAW, una app de test que acabó usando toda la clase</strong
+      >. Tecnicamente trabajo principalmente con Java/Spring Boot y Angular,
+      pero también manejo MySQL, Oracle, HTML, CSS, JavaScript y Git.
+      Básicamente, si hay que aprenderlo, me meto de cabeza.
+    </p>
+
+    <p class="text-sm sm:text-base leading-relaxed">
+      Me motivan los retos que me hacen pensar diferente y las tecnologías que
+      aún no domino. <strong
+        >Busco seguir creciendo, aprender cosas nuevas y trabajar en proyectos
+        que realmente marquen la diferencia</strong
+      >. Mi experiencia como emprendedor me ha enseñado que el mejor código es
+      el que soluciona problemas de verdad y hace la vida más fácil a los
+      usuarios.
+    </p>
+  </div>
+
+  <img
+    width="200"
+    height="200"
+    src="/yo.webp"
+    alt={personalImageAlt}
+    class="order-1 object-cover w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 p-1 md:order-2 rotate-3 lg:p-2 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 transition-all duration-300 ease-in-out hover:rotate-0 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/25 flex-shrink-0"
+    style="object-position: 50% 50%"
+  />
+</article>

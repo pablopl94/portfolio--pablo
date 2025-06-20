@@ -1,0 +1,406 @@
+---
+// Modal component for enlarging project images with specifications
+---
+
+<!-- Modal para ampliar imágenes con especificaciones -->
+<div
+    id="imageModal"
+    class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm"
+>
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div
+            class="relative max-w-7xl max-h-[90vh] w-full bg-white dark:bg-gray-900 rounded-xl shadow-2xl overflow-hidden"
+        >
+            <!-- Botón de cerrar -->
+            <button
+                id="closeModal"
+                class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors z-10 bg-white/90 dark:bg-gray-800/90 rounded-full p-2"
+                aria-label="Cerrar modal"
+            >
+                <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <!-- Contenido del modal: Imagen + Especificaciones -->
+            <div class="flex flex-col lg:flex-row h-full max-h-[90vh]">
+                <!-- Panel izquierdo: Imagen -->
+                <div
+                    class="flex-1 relative bg-gray-100 dark:bg-gray-800 flex items-center justify-center min-h-[50vh] lg:min-h-full"
+                >
+                    <img
+                        id="modalImage"
+                        class="max-w-full max-h-full object-contain p-4"
+                        alt="Imagen ampliada"
+                    />
+
+                    <!-- Navegación entre imágenes -->
+                    <button
+                        id="prevImage"
+                        class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black/50 hover:bg-black/70 rounded-full p-3 transition-all opacity-0 pointer-events-none"
+                        aria-label="Imagen anterior"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+
+                    <button
+                        id="nextImage"
+                        class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black/50 hover:bg-black/70 rounded-full p-3 transition-all opacity-0 pointer-events-none"
+                        aria-label="Imagen siguiente"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Indicador de imagen actual -->
+                    <div
+                        id="imageCounter"
+                        class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-3 py-1 rounded-full text-sm opacity-0"
+                    >
+                        1 / 1
+                    </div>
+                </div>
+
+                <!-- Panel derecho: Especificaciones -->
+                <div
+                    class="w-full lg:w-96 p-6 overflow-y-auto bg-white dark:bg-gray-900 border-l border-gray-200 dark:border-gray-700"
+                >
+                    <h2
+                        id="modalTitle"
+                        class="text-xl font-bold text-gray-900 dark:text-white mb-4"
+                    >
+                    </h2>
+
+                    <div class="space-y-6">
+                        <!-- Descripción breve -->
+                        <div>
+                            <p
+                                id="modalDescription"
+                                class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed"
+                            >
+                            </p>
+                        </div>
+
+                        <!-- Especificaciones técnicas -->
+                        <div>
+                            <h3
+                                class="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2"
+                            >
+                                Especificaciones técnicas
+                            </h3>
+                            <div id="modalSpecifications" class="space-y-3">
+                                <!-- Se llenará dinámicamente -->
+                            </div>
+                        </div>
+
+                        <!-- Enlaces del proyecto -->
+                        <div
+                            id="modalLinks"
+                            class="pt-4 border-t border-gray-200 dark:border-gray-700"
+                        >
+                            <!-- Se llenará dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById(
+            "modalImage",
+        ) as HTMLImageElement;
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDescription = document.getElementById("modalDescription");
+        const modalSpecifications = document.getElementById(
+            "modalSpecifications",
+        );
+        const modalTechnologies = document.getElementById("modalTechnologies");
+        const modalLinks = document.getElementById("modalLinks");
+        const closeBtn = document.getElementById("closeModal");
+        const prevBtn = document.getElementById("prevImage");
+        const nextBtn = document.getElementById("nextImage");
+        const imageCounter = document.getElementById("imageCounter");
+
+        let currentImages: string[] = [];
+        let currentImageIndex = 0;
+        let currentTitle = "";
+        let currentProjectData: any = {};
+
+        // Función para abrir el modal
+        function openModal(
+            imageSrc: string,
+            title: string,
+            description: string,
+            allImages: string[] = [],
+            imageIndex = 0,
+            projectData: any = {},
+        ) {
+            if (modal && modalImage && modalTitle && modalDescription) {
+                currentImages = allImages;
+                currentImageIndex = imageIndex;
+                currentTitle = title;
+                currentProjectData = projectData;
+
+                modalImage.src = imageSrc;
+                modalTitle!.textContent = title;
+                modalDescription!.textContent = description;
+
+                // Llenar especificaciones técnicas
+                if (modalSpecifications && projectData.specifications) {
+                    modalSpecifications.innerHTML = "";
+                    projectData.specifications.forEach((spec: string) => {
+                        const specDiv = document.createElement("div");
+                        specDiv.className = "flex items-start gap-2 text-sm";
+                        specDiv.innerHTML = `
+              <span class="text-blue-500 dark:text-blue-400 mt-0.5">•</span>
+              <span class="text-gray-700 dark:text-gray-300">${spec}</span>
+            `;
+                        modalSpecifications.appendChild(specDiv);
+                    });
+                }
+
+                // Llenar tecnologías
+                if (modalTechnologies && projectData.tags) {
+                    modalTechnologies.innerHTML = "";
+                    projectData.tags.forEach((tag: any) => {
+                        const tagSpan = document.createElement("span");
+                        tagSpan.className = `inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${tag.class}`;
+                        tagSpan.innerHTML = `${tag.name}`;
+                        modalTechnologies.appendChild(tagSpan);
+                    });
+                }
+
+                // Llenar enlaces
+                if (modalLinks) {
+                    modalLinks.innerHTML = "";
+                    const linksContainer = document.createElement("div");
+                    linksContainer.className = "flex flex-col gap-3";
+
+                    if (projectData.github) {
+                        const githubLink = document.createElement("a");
+                        githubLink.href = projectData.github;
+                        githubLink.target = "_blank";
+                        githubLink.rel = "noopener noreferrer";
+                        githubLink.className =
+                            "inline-flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors text-sm font-medium";
+                        githubLink.innerHTML = `
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              View Source Code
+            `;
+                        linksContainer.appendChild(githubLink);
+                    }
+
+                    if (projectData.link && projectData.link !== "#") {
+                        const demoLink = document.createElement("a");
+                        demoLink.href = projectData.link;
+                        demoLink.target = "_blank";
+                        demoLink.rel = "noopener noreferrer";
+                        demoLink.className =
+                            "inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm font-medium";
+                        demoLink.innerHTML = `
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+              Live Demo
+            `;
+                        linksContainer.appendChild(demoLink);
+                    }
+
+                    modalLinks.appendChild(linksContainer);
+                }
+
+                // Actualizar contador de imágenes
+                updateImageCounter();
+
+                // Mostrar/ocultar navegación
+                if (currentImages.length > 1) {
+                    prevBtn?.classList.remove(
+                        "opacity-0",
+                        "pointer-events-none",
+                    );
+                    nextBtn?.classList.remove(
+                        "opacity-0",
+                        "pointer-events-none",
+                    );
+                    imageCounter?.classList.remove("opacity-0");
+                } else {
+                    prevBtn?.classList.add("opacity-0", "pointer-events-none");
+                    nextBtn?.classList.add("opacity-0", "pointer-events-none");
+                    imageCounter?.classList.add("opacity-0");
+                }
+
+                modal.classList.remove("hidden");
+                document.body.style.overflow = "hidden";
+            }
+        }
+
+        // Función para actualizar el contador de imágenes
+        function updateImageCounter() {
+            if (imageCounter && currentImages.length > 1) {
+                imageCounter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+            }
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            if (modal) {
+                modal.classList.add("hidden");
+                document.body.style.overflow = "auto";
+            }
+        }
+
+        // Función para navegar entre imágenes
+        function showImage(index: number) {
+            if (currentImages.length > 0 && modalImage) {
+                currentImageIndex = index;
+                modalImage.src = currentImages[currentImageIndex];
+                updateImageCounter();
+            }
+        }
+
+        // Event listeners
+        closeBtn?.addEventListener("click", closeModal);
+
+        // Cerrar al hacer clic fuera del contenido
+        modal?.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Navegación con botones
+        prevBtn?.addEventListener("click", () => {
+            const newIndex =
+                currentImageIndex > 0
+                    ? currentImageIndex - 1
+                    : currentImages.length - 1;
+            showImage(newIndex);
+        });
+
+        nextBtn?.addEventListener("click", () => {
+            const newIndex =
+                currentImageIndex < currentImages.length - 1
+                    ? currentImageIndex + 1
+                    : 0;
+            showImage(newIndex);
+        });
+
+        // Navegación con teclado
+        document.addEventListener("keydown", (e) => {
+            if (!modal?.classList.contains("hidden")) {
+                switch (e.key) {
+                    case "Escape":
+                        closeModal();
+                        break;
+                    case "ArrowLeft":
+                        if (currentImages.length > 1) {
+                            const newIndex =
+                                currentImageIndex > 0
+                                    ? currentImageIndex - 1
+                                    : currentImages.length - 1;
+                            showImage(newIndex);
+                        }
+                        break;
+                    case "ArrowRight":
+                        if (currentImages.length > 1) {
+                            const newIndex =
+                                currentImageIndex < currentImages.length - 1
+                                    ? currentImageIndex + 1
+                                    : 0;
+                            showImage(newIndex);
+                        }
+                        break;
+                }
+            }
+        });
+
+        // Exponer función globalmente para uso en otros componentes
+        (window as any).openImageModal = openModal;
+    });
+</script>
+
+<style>
+    /* Animación de entrada del modal */
+    #imageModal:not(.hidden) {
+        animation: modalFadeIn 0.3s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Animación del contenido */
+    #imageModal:not(.hidden) > div > div {
+        animation: modalSlideIn 0.3s ease-out;
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    /* Scrollbar personalizado para el panel de especificaciones */
+    #imageModal .overflow-y-auto::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    #imageModal .overflow-y-auto::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    #imageModal .overflow-y-auto::-webkit-scrollbar-thumb {
+        background: rgba(156, 163, 175, 0.5);
+        border-radius: 3px;
+    }
+
+    #imageModal .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+        background: rgba(156, 163, 175, 0.7);
+    }
+</style>

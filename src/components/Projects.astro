@@ -1,0 +1,271 @@
+---
+import NextJS from "./icons/NextJS.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Spring from "./icons/Spring.astro";
+import Net from "./icons/Net.astro";
+import MySQL from "./icons/MySQL.astro";
+import ProjectSection from "./ProjectSection.astro";
+import ProjectsScript from "./ProjectsScript.astro";
+import Bootstrap from "./icons/Bootstrap.astro";
+import ImageModal from "./ImageModal.astro";
+import HtmlIcon from "./icons/HtmlIcon.astro";
+import CSS from "./icons/CSS.astro";
+import JavaScript from "./icons/JavaScript.astro";
+import Angular from "./icons/Angular.astro";
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: Tailwind,
+  },
+  SPRING: {
+    name: "Spring",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: Spring,
+  },
+  CSHARP: {
+    name: "C#",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: NextJS,
+  },
+  WORDPRESS: {
+    name: "WordPress",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: NextJS,
+  },
+  NET: {
+    name: "n8n",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: Net,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: MySQL,
+  },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: Bootstrap,
+  },
+  HTML: {
+    name: "HTML",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: HtmlIcon,
+  },
+  CSS: {
+    name: "CSS",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: CSS,
+  },
+  JS: {
+    name: "JavaScript",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: JavaScript,
+  },
+  ANGULAR: {
+    name: "Angular",
+    class:
+      "bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-600 hover:from-gray-600 hover:to-gray-700",
+    icon: Angular,
+  },
+};
+
+const BACKEND_PROJECTS = [
+  {
+    title: "AppEventos - Spring Boot MVC",
+    description:
+      "Sistema completo de gestión de eventos con reservas y autenticación basada en roles.",
+    github:
+      "https://github.com/pablopl94/DWES_2024_2025/tree/main/ServidorActividades/PPL_Actividad4",
+    images: [
+      "/projects/backend/eventos/eventos_login.webp",
+      "/projects/backend/eventos/eventos_home.webp",
+      "/projects/backend/eventos/eventos_evento.webp",
+      "/projects/backend/eventos/eventos_reservar.webp",
+    ],
+    tags: [TAGS.SPRING, TAGS.BOOTSTRAP],
+    specifications: [
+      "Arquitectura MVC con Spring Boot 3.4.1 y Java 21",
+      "Sistema de autenticación basado en roles ADMIN y CLIENTE",
+      "CRUD completo para gestión de eventos con estados dinámicos",
+      "Sistema de reservas con validación de aforo y prevención de conflictos",
+      "Persistencia de datos con JPA/Hibernate y base de datos MySQL",
+      "Motor de plantillas Thymeleaf para renderizado del lado del servidor",
+      "Diseño responsive con Bootstrap 5.3.0 y CSS personalizado",
+      "Gestión de sesiones y configuraciones de Spring Security",
+      "Dashboard administrativo con gestión completa de usuarios y eventos",
+      "Verificación de disponibilidad en tiempo real y confirmación de reservas",
+      "Cálculo automático de precios totales según cantidad de asistentes",
+      "Sistema de categorización de eventos por tipos",
+      "Funcionalidad de eventos destacados para promoción",
+      "Validaciones robustas de aforo máximo y mínimo de asistentes",
+      "Interfaz diferenciada según rol de usuario con Spring Security",
+    ],
+  },
+  {
+    title: "Cajero Virtual - Spring Boot MVC",
+    description:
+      "Sistema bancario web que simula operaciones de cajero automático con gestión de cuentas y transacciones.",
+    github:
+      "https://github.com/pablopl94/DWES_2024_2025/tree/main/ServidorActividades/PPL_Activ3_cajero",
+    images: [
+      "/projects/backend/cajero/cajero_home.webp",
+      "/projects/backend/cajero/cajero_movimientos.webp",
+    ],
+    tags: [TAGS.SPRING, TAGS.BOOTSTRAP],
+    specifications: [
+      "Arquitectura MVC con Spring Boot 3.3.6 y Java 21",
+      "Autenticación mediante ID de cuenta bancaria",
+      "Operaciones bancarias completas: ingresos, retiros y transferencias",
+      "Sistema de gestión de saldo con validaciones de fondos suficientes",
+      "Historial completo de movimientos con timestamps automáticos",
+      "Persistencia de datos con JPA/Hibernate y base de datos MySQL",
+      "Motor de plantillas Thymeleaf para renderizado dinámico",
+      "Interfaz responsive con Bootstrap 4.5.2",
+      "Gestión de sesiones para mantener cuenta activa",
+      "Validaciones de saldo insuficiente y cuentas inexistentes",
+      "Registro automático de todas las transacciones en base de datos",
+      "Sistema de transferencias entre cuentas con validaciones robustas",
+      "Manejo de errores y mensajes informativos para el usuario",
+      "Cálculo automático de saldos tras cada operación",
+      "Arquitectura por capas con separación clara de responsabilidades",
+    ],
+  },
+];
+
+const FRONTEND_PROJECTS = [
+  {
+    title: "QUIZZ DAW - Aplicación test",
+    description:
+      "Aplicación web de quiz interactivo para repasar exámenes de DAW. Utilizada por más de 50 alumnos con feedback inmediato y navegación fluida.",
+    link: "https://pablopl94.github.io/QuizzDAW/",
+    github: "https://github.com/pablopl94/QuizzDAW",
+    images: [
+      "/projects/frontend/quizzdaw/quizzdaw_aviso.webp",
+      "/projects/frontend/quizzdaw/quizzdaw_home.webp",
+      "/projects/frontend/quizzdaw/quizzdaw_acierto.webp",
+      "/projects/frontend/quizzdaw/quizzdaw_finish.webp",
+    ],
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JS, TAGS.BOOTSTRAP],
+    specifications: [
+      "HTML5 semántico con estructura modular y accesible",
+      "CSS3 con variables personalizadas y diseño responsivo",
+      "JavaScript vanilla con arquitectura modular y motor de quiz centralizado",
+      "Bootstrap 5.3.1 para componentes UI y sistema de grid responsivo",
+      "Sistema de quiz interactivo con feedback visual inmediato",
+      "Motor de quiz modular que separa lógica de datos de preguntas",
+      "Interfaz adaptativa para múltiples asignaturas (6 materias diferentes)",
+      "Modal de bienvenida con diseño tipo cómic y animaciones CSS",
+      "Más de 20 archivos de quiz con cientos de preguntas categorizadas",
+      "Navegación fluida entre preguntas con temporizadores configurables",
+      "Sistema de resultados con estadísticas de aciertos y fallos",
+      "Diseño mobile-first totalmente responsivo",
+      "Font Awesome para iconografía y Google Fonts (Poppins) para tipografía",
+      "LocalStorage para gestión de estado de usuario y preferencias",
+    ],
+  },
+];
+
+const FULLSTACK_PROJECTS = [
+  {
+    title: "EasyFit - Aplicación de Control Nutricional",
+    description:
+      "Aplicación fullstack para control de alimentación y fitness con seguimiento de macronutrientes, gestión de comidas y dashboard analítico.",
+    link: "https://easyfit.pabloprietounir.ovh/",
+    github: "https://github.com/JoseMazaPaton/easyFit",
+    images: [
+      "/projects/fullstack/easyfit/easyfit_landing.webp",
+      "/projects/fullstack/easyfit/easyfit_dashboard.webp",
+      "/projects/fullstack/easyfit/easyfit_diario.webp",
+    ],
+    tags: [TAGS.ANGULAR, TAGS.SPRING, TAGS.MYSQL, TAGS.BOOTSTRAP],
+    specifications: [
+      "Angular 18 con arquitectura modular y lazy loading por rutas",
+      "Spring Boot 3.4.3 con Java 21 y arquitectura REST API",
+      "MySQL con triggers automáticos para cálculo de consumo diario",
+      "Autenticación JWT con Spring Security y guards de Angular",
+      "Bootstrap 5 y TailwindCSS para diseño responsivo y componentes UI",
+      "Chart.js para visualización de datos y progreso nutricional",
+      "Deployment automatizado con GitHub Actions en VPS Ubuntu",
+      "Sistema de gestión de alimentos con categorías y valores nutricionales",
+      "Dashboard administrativo con estadísticas y gestión de usuarios",
+      "Seguimiento de macronutrientes (proteínas, carbohidratos, grasas)",
+      "Control de peso y objetivos personalizados con cálculos automáticos",
+      "SweetAlert2 para notificaciones y ModelMapper para DTOs",
+      "Apache Tomcat para backend y Apache HTTP Server para frontend",
+      "Swagger/OpenAPI para documentación de API REST",
+    ],
+  },
+  {
+    title: "FullJob - Portal de Empleo",
+    description:
+      "Portal de empleo con administración de empresas, candidatos y vacantes, además de un sistema de solicitudes y gestión por roles.",
+    link: "https://fulljob.paulopezdev.com",
+    github: "https://github.com/pablopl94/FullJobApp",
+    images: ["/projects/fullstack/fulljob/fulljob_landing.webp"],
+    tags: [TAGS.ANGULAR, TAGS.SPRING, TAGS.MYSQL, TAGS.BOOTSTRAP],
+    specifications: [
+      "Angular 19 y estructura modular con lazy loading para áreas pública e interna",
+      "Spring Boot 3.4.4 con Java 21 y REST API segura con JWT",
+      "MySQL y JPA para la persistencia de datos de usuarios, empresas y vacantes",
+      "Guards de Angular para rutas según rol (ADMIN, EMPRESA, CLIENTE)",
+      "DaisyUI, Bootstrap 5 y TailwindCSS para interfaz responsiva",
+      "Carga de currículums PDF a servidor SFTP mediante utilidad en backend",
+      "Listados y filtrado de vacantes, publicación por parte de empresas",
+      "Gestión de solicitudes de candidatos y asignación de vacantes",
+      "Envío de correos al registrarse mediante webhook n8n",
+      "Swagger/OpenAPI para documentación de la API",
+      "Despliegue automatizado con GitHub Actions en VPS Ubuntu",
+    ],
+  },
+];
+---
+
+<div
+  class="flex flex-col gap-y-4 sm:gap-y-6 lg:gap-y-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+>
+  <ProjectSection
+    title="Backend"
+    projects={BACKEND_PROJECTS}
+    sectionId="backend"
+    gradientColors="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+    projectCount={BACKEND_PROJECTS.length}
+  />
+
+  <ProjectSection
+    title="Frontend"
+    projects={FRONTEND_PROJECTS}
+    sectionId="frontend"
+    gradientColors="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700"
+    projectCount={FRONTEND_PROJECTS.length}
+  />
+
+  <ProjectSection
+    title="Full Stack"
+    projects={FULLSTACK_PROJECTS}
+    sectionId="fullstack"
+    gradientColors="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700"
+    projectCount={FULLSTACK_PROJECTS.length}
+  />
+</div>
+
+<ProjectsScript />
+<ImageModal />

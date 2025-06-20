@@ -1,0 +1,21 @@
+---
+import SocialMediaFooter from "./SocialMediaFooter.astro";
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class="opacity-80 m-4 min-[375px]:pl-4 md:pl-0 mt-12 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-4 flex justify-center"
+>
+  <div
+    class="rounded-lg w-full max-w-screen-xl mx-auto flex flex-col sm:flex-row items-center justify-between py-2 gap-2"
+  >
+    <span
+      class="text-xs sm:text-sm text-zinc-800/90 dark:text-zinc-200/90 text-center sm:text-left"
+      >© {currentYear}
+      <a href="https://midu.dev/" class="hover:underline"
+        >Pablo Prieto López
+      </a>. Casi todos los derechos reservados
+    </span>
+    <SocialMediaFooter />
+  </div>
+</footer>

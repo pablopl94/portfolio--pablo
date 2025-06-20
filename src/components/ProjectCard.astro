@@ -1,0 +1,232 @@
+---
+import GitHub from "./icons/GitHub.astro";
+import Link from "./icons/Link.astro";
+import DetallesIcon from "./icons/DetallesIcon.astro";
+import LinkButton from "./LinkButton.astro";
+
+interface Props {
+    project: {
+        title: string;
+        description: string;
+        images: string[];
+        tags: any[];
+        github?: string;
+        link?: string;
+        specifications?: string[];
+    };
+    projectIndex: number;
+    sectionId: string;
+}
+
+const { project, projectIndex, sectionId } = Astro.props;
+const { images, title, description, tags, link, github, specifications } =
+    project;
+---
+
+<article
+    class="flex flex-col space-x-0 space-y-4 sm:space-y-6 group md:flex-row md:space-x-6 lg:space-x-8 md:space-y-0 mx-4 sm:mx-2 lg:mx-0"
+>
+    <div class="w-full md:w-3/5">
+        <div
+            class="relative flex flex-col items-center col-span-6 row-span-5 gap-4 sm:gap-6 transition duration-500 ease-in-out transform shadow-lg sm:shadow-xl overflow-hidden rounded-lg sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50"
+        >
+            <div
+                class={`carousel-container-${sectionId}-${projectIndex} relative w-full h-48 sm:h-56 lg:h-full overflow-hidden`}
+            >
+                <div
+                    class={`carousel-track-${sectionId}-${projectIndex} flex transition-transform duration-1000 ease-in-out`}
+                    style={`width: ${images.length * 100}%`}
+                >
+                    {
+                        images.map((image, imageIndex) => (
+                            <img
+                                alt={`${title} - Imagen ${imageIndex + 1}`}
+                                class="object-cover object-top w-full h-full flex-shrink-0 transition duration-500 md:scale-110 md:group-hover:scale-105 cursor-pointer hover:brightness-110"
+                                loading="lazy"
+                                src={image}
+                                style={`width: ${100 / images.length}%`}
+                                data-image-src={image}
+                                data-title={title}
+                                data-description={description}
+                                data-images={JSON.stringify(images)}
+                                data-image-index={imageIndex}
+                                data-project-data={JSON.stringify(project)}
+                            />
+                        ))
+                    }
+                </div>
+                {
+                    images.length > 1 && (
+                        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            {images.map((_, dotIndex) => (
+                                <div
+                                    class={`indicator-${sectionId}-${projectIndex}-${dotIndex} w-2 h-2 rounded-full bg-white/50 transition-all duration-300`}
+                                />
+                            ))}
+                        </div>
+                    )
+                }
+            </div>
+        </div>
+    </div>
+    <div class="w-full md:w-1/2 md:max-w-lg px-1 sm:px-0">
+        <h3
+            class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100"
+        >
+            {title}
+        </h3>
+        <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-wrap mb-2 gap-x-1 sm:gap-x-2 gap-y-1">
+                {
+                    tags.map((tag) => (
+                        <li>
+                            <span
+                                class={`flex gap-x-1 sm:gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                            >
+                                <tag.icon class="size-3 sm:size-4" />
+                                {tag.name}
+                            </span>
+                        </li>
+                    ))
+                }
+            </ul>
+
+            <div
+                class="mt-2 text-sm sm:text-base text-gray-700 dark:text-gray-400"
+            >
+                {description}
+            </div>
+            <footer
+                class="flex items-end justify-start mt-3 sm:mt-4 gap-x-2 sm:gap-x-4 flex-wrap gap-y-2"
+            >
+                {
+                    github && (
+                        <LinkButton href={github} class="text-xs sm:text-sm">
+                            <GitHub class="size-4" />
+                            Code
+                        </LinkButton>
+                    )
+                }
+                {
+                    link && (
+                        <LinkButton href={link} class="text-xs sm:text-sm">
+                            <Link class="size-4" />
+                            Preview
+                        </LinkButton>
+                    )
+                }
+                <LinkButton
+                    href="javascript:void(0)"
+                    class="details-btn text-xs sm:text-sm"
+                    data-title={title}
+                    data-description={description}
+                    data-images={JSON.stringify(images)}
+                    data-project-data={JSON.stringify(project)}
+                >
+                    <DetallesIcon class="size-4" />
+                    Detalles
+                </LinkButton>
+            </footer>
+        </div>
+    </div>
+</article>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Agregar event listeners a todas las imágenes de proyectos
+        const projectImages = document.querySelectorAll("[data-image-src]");
+
+        projectImages.forEach((img) => {
+            img.addEventListener("click", function (this: HTMLElement) {
+                const imageSrc = this.getAttribute("data-image-src");
+                const title = this.getAttribute("data-title");
+                const description = this.getAttribute("data-description");
+                const imagesData = this.getAttribute("data-images");
+                const imageIndex = parseInt(
+                    this.getAttribute("data-image-index") || "0",
+                );
+                const projectDataStr = this.getAttribute("data-project-data");
+
+                if (
+                    imageSrc &&
+                    title &&
+                    description &&
+                    imagesData &&
+                    projectDataStr
+                ) {
+                    const allImages = JSON.parse(imagesData);
+                    const projectData = JSON.parse(projectDataStr);
+
+                    // Llamar a la función global del modal
+                    if ((window as any).openImageModal) {
+                        (window as any).openImageModal(
+                            imageSrc,
+                            title,
+                            description,
+                            allImages,
+                            imageIndex,
+                            projectData,
+                        );
+                    }
+                }
+            });
+        });
+
+        // Agregar event listeners a todos los botones "Detalles"
+        const detailsButtons = document.querySelectorAll(".details-btn");
+        detailsButtons.forEach((btn) => {
+            btn.addEventListener(
+                "click",
+                function (this: HTMLElement, event: Event) {
+                    // Prevenir la navegación del enlace
+                    event.preventDefault();
+
+                    const title = this.getAttribute("data-title");
+                    const description = this.getAttribute("data-description");
+                    const imagesData = this.getAttribute("data-images");
+                    const projectDataStr =
+                        this.getAttribute("data-project-data");
+
+                    console.log("Botón detalles clickeado:", {
+                        title,
+                        description,
+                        imagesData,
+                        projectDataStr,
+                    });
+
+                    if (title && description && imagesData && projectDataStr) {
+                        const allImages = JSON.parse(imagesData);
+                        const projectData = JSON.parse(projectDataStr);
+
+                        // Abrir modal con la primera imagen
+                        if ((window as any).openImageModal) {
+                            console.log(
+                                "Abriendo modal con:",
+                                allImages[0],
+                                title,
+                                description,
+                            );
+                            (window as any).openImageModal(
+                                allImages[0], // Primera imagen
+                                title,
+                                description,
+                                allImages,
+                                0, // Índice 0 para la primera imagen
+                                projectData,
+                            );
+                        } else {
+                            console.error("openImageModal no está disponible");
+                        }
+                    } else {
+                        console.error("Faltan datos:", {
+                            title,
+                            description,
+                            imagesData,
+                            projectDataStr,
+                        });
+                    }
+                },
+            );
+        });
+    });
+</script>
