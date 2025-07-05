@@ -18,9 +18,14 @@
 
 </div>
 
-## 🚀 Sobre el Proyecto
+## 🐙 Sobre mí
 
-Portfolio personal desarrollado con tecnologías modernas que muestra mi experiencia como **Desarrollador Full Stack Junior** con más de 4 meses de experiencia profesional y 2 años de experiencia emprendedora.
+Desarrollador Fullstack Junior con 4 meses de experiencia práctica en entornos empresariales.
+Completé exitosamente la migración de un ERP de .NET Core 3.1 a .NET 8, proponiendo herramientas
+de IA que aceleraron el proceso y redujeron tiempos de desarrollo. Domino el stack completo Java +
+Spring Boot + Angular + MySQL, con experiencia en arquitecturas de microservicios y herramientas
+DevOps como Azure y Git. Busco mi primera oportunidad profesional para seguir desarrollándome
+como programador.
 
 ### 🎯 Especialización
 - **Backend**: Java, Spring Boot, Spring MVC, Spring Security, .NET Core
