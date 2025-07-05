@@ -72,7 +72,7 @@ como programador.
 
 - 💼 [LinkedIn](https://linkedin.com/in/pablopl94)
 - 🐙 [GitHub](https://github.com/pablopl94)
-- 📧 [Email](pabloprietolopez94@outlook.es)
+- 📧 Email: pabloprietolopez94@outlook.es
 - 🌐 [Portfolio](https://paulopezdev.com)
 
 ---
