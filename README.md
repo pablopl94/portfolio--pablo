@@ -1,4 +1,4 @@
-# 🚀 Portfolio Pablo Prieto López - Desarrollador Full Stack Junior
+#  Portfolio Pablo Prieto López - Desarrollador Full Stack Junior
 
 <div align="center">
   <a href="https://linkedin.com/in/pablopl94">
