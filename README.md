@@ -1,4 +1,4 @@
-# 👨🏻‍💻 Portfolio Pablo Prieto López - Desarrollador Full Stack Junior
+#  Portfolio Pablo Prieto López - Desarrollador Full Stack Junior
 
 <div align="center">
 <a href="https://linkedin.com/in/pablopl94">
@@ -18,7 +18,7 @@
 
 </div>
 
-## 🐙 Sobre mí
+## 👨🏻‍💻 Sobre mí
 
 Desarrollador Fullstack Junior con 4 meses de experiencia práctica en entornos empresariales.
 Completé exitosamente la migración de un ERP de .NET Core 3.1 a .NET 8, proponiendo herramientas
