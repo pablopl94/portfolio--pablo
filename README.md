@@ -37,8 +37,8 @@ como programador.
 | Spring Boot | TypeScript | SQL Server | Postman |
 | Spring MVC | HTML5 | Oracle | Swagger |
 | Spring Security | CSS3 | | Azure |
-| .NET Core | JavaScript | | n8n |
-
+| C# | JavaScript | | n8n |
+| .NET |
 ---
 
 ## 📂 **Proyectos**
