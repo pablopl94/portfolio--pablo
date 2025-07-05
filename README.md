@@ -1,4 +1,4 @@
-# Portfolio Pablo Prieto López - Desarrollador Full Stack Junior
+# 🚀 Portfolio Pablo Prieto López - Desarrollador Full Stack Junior
 
 <div align="center">
   <a href="https://linkedin.com/in/pablopl94">
@@ -12,6 +12,7 @@
   ![Spring Boot Badge](https://img.shields.io/badge/Spring%20Boot-6DB33F?logo=springboot&logoColor=fff&style=for-the-badge)
   ![Angular Badge](https://img.shields.io/badge/Angular-DD0031?logo=angular&logoColor=fff&style=for-the-badge)
   ![Java Badge](https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white&style=for-the-badge)
+  ![C# Badge](https://img.shields.io/badge/C%23-239120?logo=csharp&logoColor=white&style=for-the-badge)
 </div>
 
 ---
@@ -31,14 +32,15 @@ como programador.
 
 ### 🎯 **Especialización**
 
-| **Backend** | **Frontend** | **Bases de Datos** | **Herramientas** |
-|-------------|--------------|-------------------|------------------|
-| Java | Angular | MySQL | Git |
-| Spring Boot | TypeScript | SQL Server | Postman |
-| Spring MVC | HTML5 | Oracle | Swagger |
-| Spring Security | CSS3 | | Azure |
-| C# | JavaScript | | n8n |
-| .NET |
+| **Backend** | **Frontend** | **Bases de Datos** | **DevOps** | **Testing/API** | **IA & Automatización** |
+|-------------|--------------|-------------------|------------|-----------------|-------------------------|
+| Java | Angular | MySQL | Git | Postman | n8n |
+| Spring Boot | TypeScript | SQL Server | Azure | Swagger | |
+| Spring MVC | HTML5 | Oracle | | | |
+| Spring Security | CSS3 | | | | |
+| C# | JavaScript | | | | |
+| .NET | | | | | |
+
 ---
 
 ## 📂 **Proyectos**
