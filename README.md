@@ -27,30 +27,24 @@ DevOps como Azure y Git. Busco mi primera oportunidad profesional para seguir de
 como programador.
 
 <div align="center">
-  <strong>⭐ Disponible para trabajar ⭐</strong>
+  
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pablopl94)
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pablopl94)
+  [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:pabloprietolopez94@outlook.es)
+  [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://paulopezdev.com)
+
 </div>
 
 ### 🎯 **Especialización**
 
-**🔧 Backend:**
-- Java, C#, .NET Core
-- Spring Boot, Spring MVC, Spring Security
-
-**🎨 Frontend:**
-- Angular, TypeScript, JavaScript
-- HTML5, CSS3
-
-**🗄️ Bases de Datos:**
-- MySQL, SQL Server, Oracle
-
-**⚙️ DevOps:**
-- Git, Azure
-
-**🧪 Testing/API:**
-- Postman, Swagger
-
-**🤖 IA & Automatización:**
-- n8n
+| **Backend** | **Frontend** | **Bases de Datos** | **DevOps** | **Testing/API** | **IA & Automatización** |
+|-------------|--------------|-------------------|------------|-----------------|-------------------------|
+| Java | Angular | MySQL | Git | Postman | n8n |
+| Spring Boot | TypeScript | SQL Server | Azure | Swagger | |
+| Spring MVC | HTML5 | Oracle | | | |
+| Spring Security | CSS3 | | | | |
+| C# | JavaScript | | | | |
+| .NET | | | | | |
 
 ---
 
@@ -86,24 +80,6 @@ como programador.
 - Gestión completa de negocio online
 - Desarrollo y mantenimiento de sitio web
 - Marketing digital y redes sociales
-
----
-
-## 🌐 **Redes Sociales**
-
-<div align="center">
-  
-  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pablopl94)
-  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pablopl94)
-  [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://paulopezdev.com)
-
-</div>
-
----
-
-## 📞 **Contacto**
-
-- 📧 **Email:** pabloprietolopez94@outlook.es
 
 ---
 
