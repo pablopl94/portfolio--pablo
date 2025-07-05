@@ -26,20 +26,14 @@ de IA que aceleraron el proceso y redujeron tiempos de desarrollo. Domino el sta
 Spring Boot + Angular + MySQL, con experiencia en arquitecturas de microservicios y herramientas
 DevOps como Azure y Git. Busco mi primera oportunidad profesional para seguir desarrollándome
 como programador.
+⭐ **Disponible para trabajar** ⭐
+
 
 ### 🎯 Especialización
 - **Backend**: Java, Spring Boot, Spring MVC, Spring Security, .NET Core
 - **Frontend**: Angular, TypeScript, HTML5, CSS3, JavaScript
 - **Bases de Datos**: MySQL, SQL Server, Oracle
 - **Herramientas**: Git, Postman, Swagger, Azure, n8n
-
-## 🔧 Tecnologías Utilizadas
-
-- **Framework**: [Astro](https://astro.build/) - Framework web moderno para contenido estático
-- **Estilos**: [Tailwind CSS](https://tailwindcss.com/) - Framework de CSS utilitario
-- **Tipografía**: [Onest Font](https://onest.dev/) - Fuente variable moderna
-- **Optimización**: Generación de sitemap y robots.txt automática
-- **Despliegue**: [Netfily](https://netfily.com/) 
 
 ## 📂 Proyectos
 
@@ -93,11 +87,15 @@ Si encuentras algún bug o tienes sugerencias de mejora:
 4. Push a la branch (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
+## 🔧 Tecnologías Utilizadas en el mí portfolio
+
+- **Framework**: [Astro](https://astro.build/) - Framework web moderno para contenido estático
+- **Estilos**: [Tailwind CSS](https://tailwindcss.com/) - Framework de CSS utilitario
+- **Tipografía**: [Onest Font](https://onest.dev/) - Fuente utilizada
+- **Despliegue**: [Netfily](https://netfily.com/) 
 
 <div align="center">
 
 **¿Te gusta mi trabajo? ¡No dudes en contactarme para nuevas oportunidades!**
-
-⭐ **Disponible para trabajar** ⭐
 
 </div>
