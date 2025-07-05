@@ -107,5 +107,5 @@ Si encuentras algún bug o tienes sugerencias de mejora:
 ---
 
 <div align="center">
-  <h3>💫 ¿Te gusta mi trabajo? ¡No dudes en contactarme para nuevas oportunidades! 💫</h3>
+  <h3>💫 ¿Te gusta mi trabajo? ¡No dudes en contactarme! 💫</h3>
 </div>
