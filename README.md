@@ -20,13 +20,14 @@
 
 ## 🚀 Sobre el Proyecto
 
-Portfolio personal desarrollado con tecnologías modernas que muestra mi experiencia como **Desarrollador Full Stack Junior** con más de 4 meses de experiencia profesional y 2 años de experiencia emprendedora.
+Portfolio personal desarrollado con tecnologías modernas que muestra mi experiencia como **Desarrollador Full Stack Junior** con 7 meses de experiencia en entornos empresariales y más de 2 años gestionando mi propio ecommerce.
 
 ### 🎯 Especialización
-- **Backend**: Java, Spring Boot, Spring MVC, Spring Security, .NET Core
+- **Backend**: Java, Spring Boot, Microservicios, APIs REST, Arquitectura Hexagonal, DDD
 - **Frontend**: Angular, TypeScript, HTML5, CSS3, JavaScript
-- **Bases de Datos**: MySQL, SQL Server, Oracle
-- **Herramientas**: Git, Postman, Swagger, Azure, n8n
+- **Bases de Datos**: MySQL, PostgreSQL
+- **DevOps**: AWS, Docker, Git, GitHub, Apache Tomcat, Ngix
+- **Herramientas**: Postman, Swagger
 
 ## 🔧 Tecnologías Utilizadas
 
@@ -52,7 +53,7 @@ Portfolio personal desarrollado con tecnologías modernas que muestra mi experie
 - **AppCajero**: Simulador de cajero automático con Spring Boot
 
 ### Frontend
-- **QuizzDAW**: Aplicación de tests educativos con HTML, CSS y JavaScript
+- **QuizzDAW**: Aplicación de tests educativos que ayudó a compañeros a preparar exámenes de manera más eficiente
 
 ### Full Stack
 - **EasyFit**: Aplicación de fitness con Angular y Spring Boot
@@ -60,21 +61,38 @@ Portfolio personal desarrollado con tecnologías modernas que muestra mi experie
 
 ## 💼 Experiencia Profesional
 
-### Euro Kaizen SL (Marzo 2025 - Junio 2025)
-**Desarrollador Backend**
-- Actualización de ERP de .NET Core 3.1 a .NET 8
-- Implementación de herramientas de IA para optimizar desarrollo
-- Desarrollo de workflows automatizados con n8n
-- Reducción del tiempo de desarrollo en 4 semanas
+### Euro Kaizen SL (Mayo 2025 - Actualmente)
+**Desarrollador Java**
+- Desarrollo backend avanzado con Java y Spring Boot
+- Implementación de arquitectura hexagonal y DDD
+- Apoyo en desarrollo de APIs REST: funcionalidades, validaciones y corrección de endpoints
+- Optimización de consultas SQL e índices, solución de incidencias de datos
+- Trabajo con Java 8 y Java 17 en múltiples proyectos
+- Soporte en despliegues con AWS y contenedores Docker
+- Aplicación de buenas prácticas SOLID y patrones de diseño
+- Participación activa en code reviews del equipo
+
+### Euro Kaizen SL (Febrero 2025 - Mayo 2025)
+**Desarrollador Java Prácticas**
+- Experiencia práctica en desarrollo backend con Java y Spring Boot
+- Resolución de tickets relacionados con endpoints y validaciones bajo supervisión
+- Trabajo con microservicios usando Spring Boot
+- Apoyo en corrección de consultas SQL y optimización de índices
+- Soporte en despliegues con AWS y contenedores Docker
+- Aplicación de principios SOLID y patrones básicos en desarrollo
+- Participación en revisiones de código con el equipo senior
 
 ### Formación Académica
 **Grado Superior en Desarrollo de Aplicaciones Web** - UNIR (2023-2025)
 
 ### Experiencia Emprendedora
 **TheSoleJungle** - Ecommerce propio (2020-2022)
-- Gestión completa de negocio online
-- Desarrollo y mantenimiento de sitio web
-- Marketing digital y redes sociales
+- Gestión completa de negocio online con más de 50 pedidos mensuales
+- Desarrollo y mantenimiento de sitio web con WordPress/WooCommerce
+- Gestión de inventario, pagos y atención al cliente
+- Marketing digital y redes sociales, estrategia SEO
+- Desarrollo de cálculo automático de gastos de envío
+- Resolución de incidencias técnicas y recuperación de cuentas bloqueadas
 
 ## 🚀 Instalación y Configuración
 
@@ -237,6 +255,6 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 **¿Te gusta mi trabajo? ¡No dudes en contactarme para nuevas oportunidades!**
 
-⭐ **Disponible para trabajar** ⭐
+🚀 **Buscando oportunidades donde pueda seguir creciendo, aportar mi experiencia y participar en proyectos que marquen la diferencia** 🚀
 
 </div>
