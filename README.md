@@ -61,7 +61,7 @@ Portfolio personal desarrollado con tecnologías modernas que muestra mi experie
 
 ## 💼 Experiencia Profesional
 
-### Euro Kaizen SL (Mayo 2025 - Actualmente)
+### Grupo Kaizen LLC (Mayo 2025 - Actualmente)
 **Desarrollador Java**
 - Desarrollo backend avanzado con Java y Spring Boot
 - Implementación de arquitectura hexagonal y DDD
